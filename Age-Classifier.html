@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Age Group Classifier</title>
+    <script>
+        // Function to classify age and display result
+        function classifyAge() {
+            const age = parseInt(document.getElementById('ageInput').value);
+            let result = "";
+
+            if (!isNaN(age) && age >= 0) {
+                if (age <= 12) {
+                    result = `The person is ${age} years old and is a Child.`;
+                } else if (age >= 13 && age <= 19) {
+                    result = `The person is ${age} years old and is a Teenager.`;
+                } else if (age >= 20 && age <= 64) {
+                    result = `The person is ${age} years old and is an Adult.`;
+                } else if (age >= 65) {
+                    result = `The person is ${age} years old and is a Senior.`;
+                }
+            } else {
+                result = "Invalid age. Please enter a non-negative number.";
+            }
+
+            // Displaying the result
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Age Group Classifier</h1>
+    <div>
+        <label for="ageInput">Enter your age:</label>
+        <input type="number" id="ageInput" name="age">
+        <button onclick="classifyAge()">Classify Age</button>
+    </div>
+    <p id="result"></p> <!-- Placeholder for the result -->
+</body>
+</html>
